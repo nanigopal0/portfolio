@@ -1,0 +1,123 @@
+nav {
+    background-color: black;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.title {
+    text-decoration: none;
+    color: white;
+    font-weight: medium;
+    font-size: 3vw;
+}
+
+.nav-items {
+    text-decoration: none;
+    /* font-size: 1.2vw; */
+    color: white;
+    font-weight: 600;
+}
+
+/* Medium screens (min-width: 601px and max-width: 1024px) */
+@media screen and (min-width: 601px) and (max-width: 1024px) {
+    nav{
+        padding: 4vw 6vw;
+    }
+    .title {
+        font-size: 3vw;
+    }
+    .menu-btn {
+        font-size: 3vw;
+        color: white;
+    }
+    .nav-btn-container {
+        display: none;
+    }
+    .menu-items{
+        font-size: 2vw;
+        margin: 8% 0;
+    }
+    .menu-items-container {
+        display: flex;
+        right: 0;
+        top: 13vw;
+        position: fixed;
+        z-index: 999;
+        width: 40%;
+        gap:1%;
+        flex-direction: column;
+        align-items: start;
+        justify-content: center;
+        padding: 2vw 1vw 2vw 4vw;
+        background-color: rgb(128, 127, 127);
+        opacity: 100%;
+        
+    }
+}
+
+@media (max-width:600px) {
+    nav{
+        padding: 4vw 6vw;
+    }
+    .title{
+        font-size: 4vw;
+    }
+    .menu-btn {
+        color: white;
+        font-size: 4vw;
+    }
+
+    .nav-btn-container {
+        display: none;
+    }
+    .menu-items{
+        font-size: 2.5vw;
+        margin: 8% 0;
+    }
+    .menu-items-container {
+        display: flex;
+        right: 0;
+        top: 13vw;
+        position: fixed;
+        z-index: 999;
+        width: 40%;
+        gap:1%;
+        flex-direction: column;
+        align-items: start;
+        justify-content: center;
+        padding: 2vw 1vw 2vw 4vw;
+        background-color: rgb(128, 127, 127);
+        opacity: 100%;
+        
+    }
+
+}
+
+
+@media (min-width:1025px) {
+    nav{
+        padding: 1vw 2vw;
+    }
+    .title{
+        font-size: 2vw;
+    }
+    .nav-content-items{
+        margin-right: 1vw;
+        padding: .6vw;
+    }
+    .menu-btn {
+        display: none;
+    }
+
+    .nav-btn-container {
+        display: flex;
+        align-items: center;
+    }
+
+    .nav-items:hover {
+        background-color: darkslateblue;
+        border-radius: .6em;
+    }
+}

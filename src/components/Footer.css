@@ -1,0 +1,28 @@
+.footer-container p {
+    font-size: .8em;
+}
+
+.footer-container {
+    background-color: black;
+    color: white;
+    padding: 1em;
+}
+.footer-icons{
+    width: 20vw;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Medium screens (min-width: 601px and max-width: 1024px) */
+@media screen and (min-width: 601px) and (max-width: 1024px) {
+    .footer-icons{
+        width: 30vw;
+    }
+}
+
+/* Small screens (max-width: 600px) */
+@media screen and (max-width: 600px) {
+    .footer-icons{
+        width: 80vw;
+    }
+}
