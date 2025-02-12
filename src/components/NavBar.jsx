@@ -1,41 +1,66 @@
-import { CiMenuBurger, CiMenuFries } from "react-icons/ci";
-import "./NavBar.css";
+import { CiMenuBurger } from "react-icons/ci";
 import { IconContext } from "react-icons";
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import "./NavBar.css";
 
 function NavBar() {
   const [showMenu, setShowMenu] = useState(false);
+  const [activeItem, setActiveItem] = useState(""); // Track active item
+
+  const navItems = [
+    { id: "me", label: "Me" },
+    { id: "education", label: "Education" },
+    { id: "skills", label: "Skills" },
+    { id: "projects", label: "Projects" },
+    // { id: "experience", label: "Experience" },
+    // { id: "achievements", label: "Achievements" },
+  ];
+
+  // Function to handle active item change
+  const handleItemClick = (id) => {
+    setActiveItem(id);
+    setShowMenu(false); // Close menu after clicking (for mobile)
+  };
 
   return (
     <>
       <nav>
-        <Link to={"/"} className="title ">Portfolio</Link>
-        <IconContext.Provider value={{ className:'menu-btn' }} >
-          <CiMenuBurger onClick={()=>setShowMenu(!showMenu)}/>
+        <Link to="/" className="title">Portfolio</Link>
+        <IconContext.Provider value={{ className: "menu-btn" }}>
+          <CiMenuBurger onClick={() => setShowMenu(!showMenu)} />
         </IconContext.Provider>
+
         <div className="nav-btn-container">
-          <Link to={'me'} className="nav-items nav-content-items" >Me</Link>
-          <Link to={"education"} className="nav-items nav-content-items">Education</Link>
-          <Link to={"skills"} className="nav-items nav-content-items">Skills</Link>
-          <Link to={"projects"} className="nav-items nav-content-items">Projects</Link>
-          <Link to={"experience"} className="nav-items nav-content-items">Experience</Link>
-          <Link to={"achievments"} className="nav-items nav-content-items">Achievments</Link>
+          {navItems.map((item) => (
+            <a
+              key={item.id}
+              href={`#${item.id}`}
+              className={`nav-items ${activeItem === item.id ? "active" : ""}`}
+              onClick={() => handleItemClick(item.id)}
+            >
+              {item.label}
+            </a>
+          ))}
         </div>
       </nav>
+
       {showMenu && (
         <div className="menu-items-container">
-          <Link to={'me'} className="menu-items nav-items" >Me</Link>
-          <Link to={"education"} className="menu-items nav-items">Education</Link>
-          <Link to={"skills"} className="menu-items nav-items">Skills</Link>
-          <Link to={"projects"} className="menu-items nav-items">Projects</Link>
-          <Link to={"experience"} className="menu-items nav-items">Experience</Link>
-          <Link to={"achievments"} className="menu-items nav-items">Achievments</Link>
+          {navItems.map((item) => (
+            <a
+              key={item.id}
+              href={`#${item.id}`}
+              className={`menu-items ${activeItem === item.id ? "active" : ""}`}
+              onClick={() => handleItemClick(item.id)}
+            >
+              {item.label}
+            </a>
+          ))}
         </div>
       )}
     </>
   );
 }
-
 
 export default NavBar;

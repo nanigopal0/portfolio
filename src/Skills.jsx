@@ -11,9 +11,6 @@ function Skills(){
                 <p>Spring Boot</p>
                 <p>React js</p>
                 <p>MySQL</p>
-                <p>HTML</p>
-                <p>CSS</p>
-                <p>Javascript</p>
                 <p>MongoDB</p>
             </div>
         </div>

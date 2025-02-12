@@ -8,6 +8,7 @@ import Achievments from "./Achievments";
 import Education from "./Education";
 import Experience from "./Experience";
 import Skills from "./Skills";
+import Home from "./Home";
 
 function App() {
   return (
@@ -15,13 +16,7 @@ function App() {
       <BrowserRouter>
         <NavBar />
         <Routes>
-          <Route path="/" element={<Me />} />
-          <Route path="/me" element={<Me />} />
-          <Route path="/education" element={<Education />} />
-          <Route path="/experience" element={<Experience />} />
-          <Route path="/projects" element={<Projects />} />
-          <Route path="/achievments" element={<Achievments />} />
-          <Route path="/skills" element={<Skills />} />
+          <Route path="/" element={<Home />} />
         </Routes>
         <Footer />
       </BrowserRouter>

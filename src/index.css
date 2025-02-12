@@ -1,3 +1,10 @@
+body{
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to bottom ,black,#050596,#9e0554);
+    color: white;
+}
+
 /* Small screens (max-width: 600px) */
 @media screen and (max-width: 600px) {
     body {
@@ -28,7 +35,7 @@
 
     .text-button {
         background-color: white;
-        color: blueviolet;
+        color: rgb(218, 83, 225);
         font-size: 1em;
         cursor: pointer;
         font-weight: 500;
@@ -61,7 +68,7 @@
 
     .text-button {
         background-color: white;
-        color: blueviolet;
+        color: rgb(218, 83, 225);
         font-size: 1.1em;
         cursor: pointer;
         font-weight: 500;
@@ -106,7 +113,7 @@
 
     .text-button {
         background-color: white;
-        color: blueviolet;
+        color: rgb(218, 83, 225);
         font-size: 1.2em;
         cursor: pointer;
         font-weight: 500;
