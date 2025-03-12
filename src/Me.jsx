@@ -4,7 +4,7 @@ export default function Me() {
 
   const downloadResume=()=>{
     const link = document.createElement("a");
-    link.href = "/NANIGOPAL%20RANA%20RESUME.pdf"; // Update this path to your resume file
+    link.href = "/NANIGOPAL%20RANA%20Resume.pdf"; // Update this path to your resume file
     link.download = "Nanigopal_Rana_Resume.pdf";
     document.body.appendChild(link);
     link.click();
