@@ -21,7 +21,7 @@ export default function Me() {
           <button className="text-button" onClick={downloadResume}>Download my resume</button>
         </div>
         <div className="image-container">
-          <img src="/src/public/java-logo.png" alt="profile-picture" />
+          <img src="/public/java-logo.png" alt="profile-picture" />
         </div>
       </div>
     </>
