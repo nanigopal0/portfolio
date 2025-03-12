@@ -1,20 +1,17 @@
 
 .skills-container > p:first-child {
     font-size: 1.5rem;
-    /* Adjust font size as needed */
     font-weight: 600;
-    /* Adjust font weight as needed */
     margin: 0 0 2vw 0;
-    /* Adjust margin as needed */
+ 
 }
 
 .skills-grid {
     margin: 2vw 2vw;
-    /* Adjust margin as needed */
+
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 5vw;
-    /* Adjust the gap between grid items as needed */
     text-align: center;
 }
 
@@ -22,7 +19,6 @@
     font-size: 1rem;
     background-color: #f0f0f0;
     color: black;
-    /* Adjust background color as needed */
     padding: 10px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -33,7 +29,6 @@
     transform: scale(1.05);
     background-color: #e0e0e0;
     color: black;
-    /* Adjust hover background color as needed */
 }
     
     /* For larger screens (laptops and desktops) */

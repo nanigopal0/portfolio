@@ -3,11 +3,12 @@ import "./Education.css";
 function Education() {
   const education = [
     {
-      name: "Jagdabad Sashi Bhusan High School",
-      year: "2019",
-      address: "Jagdabad, Purba Bardhaman, West Bengal, India , 713141",
-      class: "Secondary [WBBSE Board]",
-      result: "76.57% Marks"
+      name: "Academy of Technology",
+      class:
+        "Bachelor of Technology in Electronics and Communication Engineering",
+      year: "2022 - Present",
+      address: "Hooghly, West Bengal, India",
+      result: "7.93 CGPA",
     },
     {
       name: "Burdwan Town School",
@@ -18,12 +19,11 @@ function Education() {
     },
 
     {
-      name: "Academy of Technology",
-      class:
-        "Bachelor of Technology in Electronics and Communication Engineering",
-      year: "2022 - Present",
-      address: "Hooghly, West Bengal, India",
-      result: "7.93 CGPA",
+      name: "Jagdabad Sashi Bhusan High School",
+      year: "2019",
+      address: "Jagdabad, Purba Bardhaman, West Bengal, India , 713141",
+      class: "Secondary [WBBSE Board]",
+      result: "76.57% Marks"
     },
   ];
   return (
