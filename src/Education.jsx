@@ -32,7 +32,7 @@ function Education() {
     <div className="mb-16">
       <p className="text-3xl font-medium">Education</p>
 
-      <div className="p-4 mt-4 flex flex-col gap-8 items-center">
+      <div className="mt-4 flex flex-col gap-8 items-center">
         {education.map((edu, index) => (
           <EducationCard
             key={index}

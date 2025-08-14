@@ -21,7 +21,7 @@ function Projects() {
   return (
     <div className="mb-8">
       <p className="text-3xl font-medium ">Projects</p>
-      <div className="mt-4 p-4 grid grid-cols-1 lg:grid-cols-3 gap-6">
+      <div className="mt-4 grid grid-cols-1 lg:grid-cols-3 gap-6">
         {projects.map((project, index) => (
           <ProjectCard
             description={project.description}

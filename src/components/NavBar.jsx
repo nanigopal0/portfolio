@@ -1,11 +1,10 @@
 import { CiMenuBurger } from "react-icons/ci";
 import { useState } from "react";
 import { IoCloseOutline } from "react-icons/io5";
-import { useLocation } from "react-router-dom";
 
 function NavBar() {
   const [showMenu, setShowMenu] = useState(false);
-  const location = useLocation();
+
 
   const navItems = [
     { id: "me", label: "Me" },
@@ -54,7 +53,7 @@ function NavBar() {
               key={item.id}
               to={`#${item.id}`}
               className={`ml-6 p-2 text-lg font-medium hover:bg-blue-700 rounded-lg ${
-                location.hash === "#" + item.id ? "bg-blue-700" : ""
+                window.location.hash === "#" + item.id ? "bg-blue-700" : ""
               }`}
               onClick={() => setShowMenu(false)}
             >
@@ -66,15 +65,15 @@ function NavBar() {
 
       {showMenu && (
         <div
-          className="md:hidden flex top-14 right-8 z-50 fixed w-2/5  p-4
-        flex-col border border-white/20 bg-indigo-800/60 rounded-2xl"
+          className="md:hidden flex top-14 right-8 z-50 fixed w-3/5  p-4
+        flex-col border border-white/20 bg-indigo-800/90 rounded-2xl"
         >
           {navItems.map((item) => (
             <a
               key={item.id}
               href={`#${item.id}`}
               className={`mb-4 hover:bg-blue-700 p-4 rounded-lg menu-items ${
-                location.hash === "#" + item.id ? "bg-blue-700" : ""
+                window.location.hash === "#" + item.id ? "bg-blue-700" : ""
               }`}
               onClick={() => setShowMenu(false)}
             >

@@ -1,23 +1,11 @@
 import { FaGithub, FaLinkedin, FaPhoneAlt } from "react-icons/fa";
-import { IconContext } from "react-icons";
-// import "./Footer.css";
-import { MdEmail, MdOutlineEmail } from "react-icons/md";
-import { HiOutlineMail } from "react-icons/hi";
+import { MdEmail } from "react-icons/md";
 
 export default function Footer() {
   return (
     <>
-      <div className="bg-black p-8 mb-4 flex justify-around">
-        <div>
-          <p className="text-md mt-8 mb-4">Write a feedback</p>
-
-          <p className="text-md mb-4">Privacy Policy</p>
-
-          <p className="text-md mb-4">Terms of Service</p>
-
-          <p className="text-md mb-4">© 2025 All rights reserved</p>
-        </div>
-        <div className="flex flex-col items-center justify-evenly">
+      <div className="bg-black p-8 justify-around">
+        <div className="flex items-center justify-evenly mb-8">
           <a
             href="https://www.linkedin.com/in/n-r-684809310"
             target="_blank"
@@ -58,6 +46,7 @@ export default function Footer() {
             </div>
           </a>
         </div>
+        <p className="text-md text-center mb-4">© 2025 All rights reserved</p>
       </div>
     </>
   );

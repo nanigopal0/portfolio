@@ -29,7 +29,7 @@ function Skills() {
   return (
     <div className="mb-16">
       <p className="text-3xl font-medium">Skills</p>
-      <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 p-4 mt-4">
+      <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4 mt-4">
         {skills.map((skill, index) => (
           <SkillsCard key={index} skill={skill} />
         ))}
