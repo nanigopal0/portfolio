@@ -9,7 +9,7 @@ export default function Feedback() {
 
   const handleSubmit = async () => {
     axios
-      .post("api/feedback/add", {
+      .post("/api/feedback/add", {
         email: email,
         feedbackMessage: feedback,
       })
