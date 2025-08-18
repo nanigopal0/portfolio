@@ -47,8 +47,8 @@ export default function Admin() {
 
         <div className="gap-2 flex flex-col">
           {feedbacks && feedbacks.length > 0 ? (
-            feedbacks.map((feedbacks, index) => (
-              <FeedbackDisplayCard key={index} feedback={feedbacks} />
+            feedbacks.map((feedback, index) => (
+              <FeedbackDisplayCard key={index} feedback={feedback} />
             ))
           ) : (
             <p className="text-center mt-4 text-gray-500">
