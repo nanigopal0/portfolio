@@ -10,8 +10,9 @@ export default function Admin() {
 
   const fetchFeedbacks = (email, password) => {
     const cred = btoa(`${email}:${password}`);
-    axios
-      .get("/api/feedback/get", {
+    const api = import.meta.env.VITE_SERVER_URL;
+    
+    axios.get(`${api}/feedback/get`, {
         headers: {
           Authorization: `Basic ${cred}`,
           "Content-Type": "application/json",

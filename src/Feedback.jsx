@@ -8,8 +8,10 @@ export default function Feedback() {
   const [error, setError] = useState(false);
 
   const handleSubmit = async () => {
+    const api = import.meta.env.VITE_SERVER_URL;
+
     axios
-      .post("/api/feedback/add", {
+      .post(`${api}/feedback/add`, {
         email: email,
         feedbackMessage: feedback,
       })
@@ -24,7 +26,7 @@ export default function Feedback() {
       })
       .catch((error) => {
         console.error("There was an error submitting the feedback!", error);
-        setMsg("❌ " + (error || 'Failed to submit feedback!'));
+        setMsg("❌ " + (error || "Failed to submit feedback!"));
         setError(true);
       });
 
