@@ -7,12 +7,15 @@ export default function Admin() {
   const [feedbacks, setFeedbacks] = useState([]);
   const [showDialog, setShowDialog] = useState(true);
   const [errorMessage, setErrorMessage] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const fetchFeedbacks = (email, password) => {
     const cred = btoa(`${email}:${password}`);
     const api = import.meta.env.VITE_SERVER_URL;
-    
-    axios.get(`${api}/feedback/get`, {
+    setLoading(true);
+
+    axios
+      .get(`${api}/feedback/get`, {
         headers: {
           Authorization: `Basic ${cred}`,
           "Content-Type": "application/json",
@@ -37,12 +40,15 @@ export default function Admin() {
         } else {
           setErrorMessage("Failed to fetch feedbacks. Please try again later.");
         }
+      })
+      .finally(() => {
+        setLoading(false);
       });
   };
 
   return (
-    <>
-      <div className={`h-screen my-10 p-4 ${showDialog ? "blur-sm" : ""}`}>
+    <div className="my-10">
+      <div className={` p-4 ${showDialog && "blur-sm h-screen"}`}>
         <h1 className="text-center text-4xl font-medium mb-10">Admin Panel</h1>
         <h1 className="text-2xl mb-4 font-medium">Feedbacks</h1>
 
@@ -62,8 +68,12 @@ export default function Admin() {
         className="fixed inset-0 shadow-2xl z-50 flex justify-center items-center"
         hidden={!showDialog}
       >
-        <AdminLogin onSubmit={fetchFeedbacks} errorMessage={errorMessage} />
+        <AdminLogin
+          onSubmit={fetchFeedbacks}
+          errorMessage={errorMessage}
+          loading={loading}
+        />
       </div>
-    </>
+    </div>
   );
 }

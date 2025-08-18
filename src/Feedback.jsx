@@ -1,15 +1,17 @@
 import axios from "axios";
 import { useState } from "react";
+import { CgSpinner } from "react-icons/cg";
 
 export default function Feedback() {
   const [email, setEmail] = useState("");
   const [feedback, setFeedback] = useState("");
   const [msg, setMsg] = useState("");
   const [error, setError] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const handleSubmit = async () => {
     const api = import.meta.env.VITE_SERVER_URL;
-
+    setLoading(true);
     axios
       .post(`${api}/feedback/add`, {
         email: email,
@@ -28,6 +30,9 @@ export default function Feedback() {
         console.error("There was an error submitting the feedback!", error);
         setMsg("❌ " + (error || "Failed to submit feedback!"));
         setError(true);
+      })
+      .finally(() => {
+        setLoading(false);
       });
 
     setEmail("");
@@ -69,7 +74,13 @@ export default function Feedback() {
             className="place-self-center mt-4 border border-white/30 font-medium px-4 py-2 rounded-lg bg-blue-600 hover:bg-blue-800"
             onClick={handleSubmit}
           >
-            Submit
+            {loading ? (
+              <div className="flex justify-center">
+                <CgSpinner className="animate-spin text-center w-7 h-7" />
+              </div>
+            ) : (
+              "Submit"
+            )}
           </button>
         </div>
       </div>
