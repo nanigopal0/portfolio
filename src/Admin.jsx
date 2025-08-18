@@ -14,7 +14,8 @@ export default function Admin() {
       .get("/api/feedback/get", {
         headers: {
           Authorization: `Basic ${cred}`,
-          "Content-Type": "application/json"
+          "Content-Type": "application/json",
+          "Cache-Control": "no-cache",
         },
       })
       .then((response) => {
@@ -27,7 +28,7 @@ export default function Admin() {
       .catch((error) => {
         console.error("Error fetching feedbacks:", error);
         if (error.response?.status === 401)
-          setErrorMessage("Invalid credentials! "+error.message);
+          setErrorMessage("Invalid credentials! " + error.message);
         else if (error.response?.data?.message) {
           setErrorMessage(error.response.data.message);
         } else if (error.message) {
