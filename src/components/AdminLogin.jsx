@@ -1,15 +1,45 @@
 import axios from "axios";
 import { useState } from "react";
 import { CgSpinner } from "react-icons/cg";
-import { VscLoading } from "react-icons/vsc";
 
-export default function AdminLogin({ onSubmit, errorMessage, loading }) {
+export default function AdminLogin({ onClose }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
-    onSubmit(email, password);
+    // onSubmit(email, password);
+    setLoading(true);
+    const api = import.meta.env.VITE_SERVER_URL;
+    try {
+      const response = await axios.post(
+        `${api}/admin/login`,
+        { email, password },
+        {
+          withCredentials: true,
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      if (response.status == 200) {
+        console.log(response.data);
+        onClose();
+        setEmail("");
+        setPassword("");
+      }
+    } catch (error) {
+      console.log(
+        error.response.data.message || error.message || "Failed to login!"
+      );
+      setErrorMessage(
+        error.response.data.message || error.message || "Failed to login!"
+      );
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -42,7 +72,7 @@ export default function AdminLogin({ onSubmit, errorMessage, loading }) {
         <button
           type="submit"
           onClick={(e) => handleLogin(e)}
-          className="w-full bg-blue-500 text-white font-medium text-lg p-2 rounded hover:bg-blue-600"
+          className="w-full bg-blue-500 text-white font-medium text-lg p-2 rounded hover:bg-blue-600 cursor-pointer"
         >
           {loading ? (
             <div className="flex justify-center">

@@ -12,7 +12,7 @@ function NavBar() {
     { id: "skills", label: "Skills" },
     { id: "projects", label: "Projects" },
     // { id: "experience", label: "Experience" },
-    // { id: "achievements", label: "Achievements" },
+    { id: "achievements", label: "Achievements" },
   ];
 
   const handleNavClick = () => {

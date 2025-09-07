@@ -10,6 +10,11 @@ export default function Feedback() {
   const [loading, setLoading] = useState(false);
 
   const handleSubmit = async () => {
+    if (!email || !feedback) {
+      setMsg("❌ Please fill in all fields!");
+      setError(true);
+      return;
+    }
     const api = import.meta.env.VITE_SERVER_URL;
     setLoading(true);
     axios

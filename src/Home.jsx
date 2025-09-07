@@ -1,3 +1,4 @@
+import Achievments from "./Achievments";
 import Education from "./Education";
 import Feedback from "./Feedback";
 import Me from "./Me";
@@ -19,12 +20,9 @@ function Home() {
       <section id="projects">
         <Projects />
       </section>
-      {/* <section id="experience">
-            <Experience/>
-        </section> 
-        <section id="achievments">
-            <Achievments/>
-        </section> */}
+      <section id="achievments">
+        <Achievments />
+      </section>
       <section id="feedback">
         <Feedback />
       </section>
