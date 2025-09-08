@@ -15,30 +15,27 @@ export default function Feedback() {
       setError(true);
       return;
     }
-    const api = import.meta.env.VITE_SERVER_URL;
     setLoading(true);
-    axios
-      .post(`${api}/feedback/add`, {
+    try {
+      const response = await axios.post(`/api/feedback/add`, {
         email: email,
         feedbackMessage: feedback,
-      })
-      .then((resp) => {
-        if (resp.status === 200) {
-          setMsg("✅ Feedback submitted successfully!");
-          setError(false);
-        } else {
-          setMsg("❌ Failed to submit feedback!");
-          setError(true);
-        }
-      })
-      .catch((error) => {
-        console.error("There was an error submitting the feedback!", error);
-        setMsg("❌ " + (error || "Failed to submit feedback!"));
-        setError(true);
-      })
-      .finally(() => {
-        setLoading(false);
       });
+
+      if (response.status === 200) {
+        setMsg("✅ Feedback submitted successfully!");
+        setError(false);
+      } else {
+        setMsg("❌ Failed to submit feedback!");
+        setError(true);
+      }
+    } catch (error) {
+      console.error("There was an error submitting the feedback!", error);
+      setMsg("❌ " + (error || "Failed to submit feedback!"));
+      setError(true);
+    } finally {
+      setLoading(false);
+    }
 
     setEmail("");
     setFeedback("");

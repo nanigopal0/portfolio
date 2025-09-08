@@ -10,7 +10,6 @@ export default function Admin() {
   const [showDialog, setShowDialog] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
   const [loading, setLoading] = useState(true);
-  const api = import.meta.env.VITE_SERVER_URL;
 
   useEffect(() => {
     ping();
@@ -18,14 +17,14 @@ export default function Admin() {
 
   const ping = async () => {
     try {
-      const response = await axios.get(`${api}/admin/ping`, {
+      await axios.get(`/api/admin/ping`, {
         withCredentials: true,
         headers: {
           "Content-Type": "application/json",
         },
       });
 
-      console.log(response.data);
+      fetchFeedbacks();
     } catch (error) {
       setShowDialog(true);
 
@@ -40,7 +39,7 @@ export default function Admin() {
   const fetchFeedbacks = async () => {
     setLoading(true);
     try {
-      const response = await axios.get(`${api}/feedback/get`, {
+      const response = await axios.get(`/api/feedback/get`, {
         withCredentials: true,
         headers: {
           "Content-Type": "application/json",
@@ -61,7 +60,7 @@ export default function Admin() {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`${api}/feedback/delete/${id}`, {
+      await axios.delete(`/api/feedback/delete/${id}`, {
         withCredentials: true,
         headers: {
           "Content-Type": "application/json",
@@ -84,13 +83,13 @@ export default function Admin() {
 
   const handleLogout = async () => {
     try {
-      const response = await axios.get(`${api}/admin/logout`, {
+      await axios.get(`/api/admin/logout`, {
         withCredentials: true,
         headers: {
           "Content-Type": "application/json",
         },
       });
-      console.log(response.data);
+
       setShowDialog(true);
     } catch (error) {
       setErrorMessage(

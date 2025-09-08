@@ -10,12 +10,11 @@ export default function AdminLogin({ onClose }) {
 
   const handleLogin = async (e) => {
     e.preventDefault();
-    // onSubmit(email, password);
     setLoading(true);
-    const api = import.meta.env.VITE_SERVER_URL;
+  
     try {
       const response = await axios.post(
-        `${api}/admin/login`,
+        `/api/admin/login`,
         { email, password },
         {
           withCredentials: true,
@@ -25,7 +24,6 @@ export default function AdminLogin({ onClose }) {
         }
       );
       if (response.status == 200) {
-        console.log(response.data);
         onClose();
         setEmail("");
         setPassword("");

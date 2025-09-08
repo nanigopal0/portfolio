@@ -1,5 +1,6 @@
 {
   "rewrites":  [
-    {"source": "/(.*)", "destination": "/"}
+    {"source": "/api/(.*)", "destination": "https://portfolio-backend-springboot-hragghg6gyf3afb2.eastasia-01.azurewebsites.net/$1"},
+    {"source": "/(.*)", "destination": "/index.html"}
   ]
 }
