@@ -4,7 +4,7 @@ function Projects() {
   const projects = [
     {
       name: "Blog Application",
-      link: "https://blogs-gama.vercel.app/",
+      link: "https://blog-gama.vercel.app/",
       gihtubLink: "https://github.com/nanigopal0/BlogApi",
       description:
         "This is the full stack blog website that I created using React, Spring Boot, and MongoDB.\nTech stack used: Spring Boot as backend, React as frontend, MongoDB for storing user data and blog data, Github as VCS, Cloudinary for storing image, JWT token, Docker for containerization and building the docker image and deployed on Azure Container Apps.",
